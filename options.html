@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Options - Flickr Activity</title>
+		<style type="text/css">
+			body {
+				font-family: sans-serif;
+				width: 280px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			h1 {
+				margin-bottom: 0;
+				font-weight: normal;
+				display: inline;
+				margin-right: 1em;
+				letter-spacing: 0.1em;
+			}
+			#summary {
+				margin-top: 0;
+				letter-spacing: 0.1em;
+				float: right;
+				margin-top: 0.8em;
+			}
+			label {
+				cursor: pointer;
+				padding: 0.2em 0.4em;
+				border: 1px solid lightgrey;
+				border-radius: 4px;
+				box-shadow: 0 1px 3px #e6f0ed;
+				display: block;
+			}
+			label:hover {
+				border: 1px solid grey;
+			}
+			label input {
+				float: right;
+			}
+			input {
+				cursor: pointer;
+			}
+			#actions {
+				text-align: right;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				popup = document.getElementById('popup');
+				updateOption = function(e) {
+					if(this.getAttribute('checked') == 'true') {
+						console.log('Notifications on, turning off...');
+						this.removeAttribute('checked');
+						localStorage.removeItem('notifications');
+					} else {
+						console.log('Notifications off, turning on...');
+						this.setAttribute('checked', 'true');
+						localStorage.setItem('notifications', 1);
+					}
+				}
+				popup.addEventListener('click', updateOption);
+				if(localStorage.getItem('notifications') > 0) popup.setAttribute('checked', 'true');
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Options</h1>
+		<p id="summary"><em>Flickr Activity</em></p>
+		<form action="#">
+			<p><label for="popup">Desktop notifications <input type="checkbox" id="popup" name="popup" /></label></p>
+		</form>
+	</body>
+</html>

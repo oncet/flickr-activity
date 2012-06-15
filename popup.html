@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Flickr Notifier</title>
+	<link rel="stylesheet" href="popup.css" type="text/css">
+	<script type="text/javascript" src="render.js"></script>
+	<script type="text/javascript" src="core.js"></script>
+	<script type="text/javascript" src="controls.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			renderData();
+			cursor = new cursor();
+			loop();
+			liElements = document.body.getElementsByTagName('li');
+			for(i = 0; i < liElements.length; i++) {
+				baseUrl = 'http://www.flickr.com';
+				links = liElements[i].getElementsByTagName('a');
+				for(e = 0; e < links.length; e++) {
+					hrefValue = links[e].getAttribute('href');
+					if(hrefValue != '#' && hrefValue.search("http") == -1) {
+						links[e].setAttribute('href', baseUrl + hrefValue);
+						console.log('Fixed URL (' + hrefValue + ')');
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body></body></html>
