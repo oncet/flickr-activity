@@ -1,0 +1,18 @@
+{
+  "appName": {
+    "message": "Flickr Activity",
+    "description": "Name of the extension."
+  },
+  "appDesc": {
+    "message": "Activity reader and notifier for Flickr users", 
+    "description": "Shows the last 10 notifications from your Flickr user."
+  },
+  "flickrLink": {
+    "message": "Go to Flickr.com »",
+    "description": "Text for linking to http://www.flickr.com/."
+  },
+  "offlineLink": {
+    "message": "Sign into Flickr before using this extension.",
+    "description": "User is offline."
+  }
+}

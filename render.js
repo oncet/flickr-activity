@@ -54,7 +54,7 @@ function renderData() {
 		}
 		document.body.innerHTML = null;
 		document.body.appendChild(ul);
-		var bannerText = document.createTextNode('Go to Flickr.com »');
+		var bannerText = document.createTextNode(chrome.i18n.getMessage("flickrLink"));
 		var bannerA = document.createElement('a');
 		var bannerP = document.createElement('p');
 		bannerA.appendChild(bannerText);
@@ -75,7 +75,7 @@ function renderData() {
 		console.log('Local storage empty');
 		var p = document.createElement('p');
 		var a = document.createElement('a');
-		var loginText = document.createTextNode('Sign into Flickr before using this extension.');
+		var loginText = document.createTextNode(chrome.i18n.getMessage("offlineLink"));
 		p.setAttribute('id', 'login');
 		a.setAttribute('href', 'http://www.flickr.com/');
 		a.appendChild(loginText);
